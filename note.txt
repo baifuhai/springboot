@@ -1,0 +1,178 @@
+静态资源映射
+WebMvcAutoConfiguration.java
+
+/webjars/**		classpath:/META-INF/resources/webjars/
+
+/**				classpath:/META-INF/resources/
+				classpath:/resources/
+				classpath:/static/
+				classpath:/public/
+				/
+
+/**/favicon.ico
+
+=============================================================================
+RabbitMQ
+
+JMS(Java Message Service)
+ActiveMQ
+
+AMQP(Advanced Message Queuing Protocol)
+RabbitMQ
+
+		JMS				AMQP
+定义		Java Api		网络协议
+跨语言	否				是
+跨平台	否				是
+Model	peer-2-peer		direct exchange
+		pub/sub			fanout exchange
+						topic exchange
+						headers exchange
+						system exchange
+消息类型	TextMessage		byte[]将消息序列化后发送
+		MapMessage
+		BytesMessage
+		StreamMessage
+		ObjectMessage
+		Message
+
+消息中的路由键（Routing Key）和Binding中的Routing Key比较
+
+点对点		direct		只发给一个队列
+发布/订阅	fanout		发给绑定的所有队列，不使用路由键
+			topic		使用路由键进行模式匹配，#匹配0个或多个单词，*匹配一个单词，单词之间用.隔开
+			headers		用的少，匹配消息头，而不是路由键
+
+Message			消息，由消息头和消息体组成
+Publisher		消息的生产者
+Exchange		交换器，接收消息并发送到列队中
+Queue			消息队列
+Binding			交换器和消息队列的绑定关系，决定了消息会发送到哪个队列，一个交换器可以绑定多个队列，一个队列可以被多个交换器绑定
+Connection		TCP连接
+Channel			信道，一条独立的双向数据流通道，是建立在真实TCP连接内的虚拟连接，AMQP命令都是通过信道发出去的，对于操作系统来说，建立和销毁TCP连接开销大，所以采用信道，复用一个TCP连接
+Consumer		消息的消费者
+Virtual Host	虚拟主机，mini版的RabbitMQ，可独立运行，每个vhost拥有自己的交换器、队列、绑定和权限机制，连接时必须指定，默认/
+Broker			消息服务器实体
+
+
+JmsTemplate				RabbitTemplate
+@JmsListener			@RabbitListener
+@EnableJms				@EnableRabbit
+@JmsAutoConfiguration	@RabbitAutoConfiguration
+
+=============================================================================
+ElasticSearch
+
+开源
+全文搜索引擎的首选
+快速地储存、搜索和分析海量数据
+底层基于开源库Lucene
+但是，你没法直接用Lucene，必须自己写代码去调用它的接口
+ES是Lucene的封装，提供了REST API的操作接口，开箱即用
+Spring Data ElasticSearch提供了非常便捷的检索功能的支持
+分布式搜索服务
+采用多shard（分片）的方式保证数据安全，并且提供自动resharding的功能，github等大型的站点也采用ES
+
+ES_JAVA_OPTS="-Xms256m -Xmx256m"
+
+9200	服务
+9300	节点之间通信
+
+安装spring-data-elasticsearch对应版本的elasticsearch
+spring data elasticsearch	elasticsearch
+3.2.x	6.5.0
+3.1.x	6.2.2
+3.0.x	5.5.0
+2.1.x	2.4.0
+2.0.x	2.2.0
+1.3.x	1.5.2
+
+两种方式操作ES
+1、jest
+2、spring-data-elasticsearch
+	Client
+	ElasticsearchRepository
+	ElasticsearchTemplate
+
+https://github.com/spring-projects/spring-data-elasticsearch
+https://github.com/searchbox-io/Jest/tree/master/jest
+
+https://docs.spring.io/spring-data/elasticsearch/docs/2.1.18.RELEASE/reference/html/
+
+安装服务，6版本参考官网
+service.bat install elasticsearch-2.4.6
+
+安装head插件
+plugin install mobz/elasticsearch-head
+http://localhost:9200/_plugin/head/
+
+=============================================================================
+任务
+
+1、异步任务
+	@EnableAsync
+	@Async
+
+2、定时任务
+	@EnableScheduling
+	@Scheduled(cron = "0/4 * * * * MON-SAT")
+	
+	second(秒), minute（分）, hour（时）, day of month（日）, month（月）, day of week（星期）
+	
+	日和星期不能同时*，一个*，另一个就要么？，要么具体值
+	1-6是星期一到六，0和7是星期天
+	, 枚举
+	- 范围
+	* 任意
+	/ 步长
+	? 日和星期冲突匹配
+	L 最后
+	W 工作日
+	# 3#2，第2个星期三
+
+3、邮件任务
+	JavaMailSender
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-mail</artifactId>
+	</dependency>
+
+=============================================================================
+安全
+
+认证（Authentication）
+
+授权（Authorization）
+
+视频里是和thymeleaf整合使用
+
+=============================================================================
+热部署
+
+第一个没加，在springcloud视频里有加
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>springloaded</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<scope>runtime</scope>
+	<optional>true</optional>
+</dependency>
+
+=============================================================================
+监管
+
+autoconfig	所有自动配置信息
+auditevents	审计事件
+beans		所有Bean的信息
+configprops	所有配置属性
+dump		线程状态信息
+env			当前环境信息
+health		应用健康状况
+info		当前应用信息
+metrics		应用的各项指标
+mappings	应用@RequestMapping映射路径
+shutdown	关闭当前应用（默认关闭）
+trace		追踪信息（最新的http请求）
