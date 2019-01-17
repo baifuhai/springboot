@@ -1520,6 +1520,7 @@ http://localhost:9200/_plugin/head/
 
 3、邮件任务
 	JavaMailSender
+	
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-mail</artifactId>
@@ -1542,6 +1543,7 @@ http://localhost:9200/_plugin/head/
 	<groupId>org.springframework</groupId>
 	<artifactId>springloaded</artifactId>
 </dependency>
+
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-devtools</artifactId>
@@ -1551,6 +1553,13 @@ http://localhost:9200/_plugin/head/
 
 =============================================================================
 监管
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+我们可以通过HTTP，JMX，SSH协议来访问监控端点，得到审计、健康及指标信息等
 
 autoconfig	所有自动配置信息
 auditevents	审计事件
