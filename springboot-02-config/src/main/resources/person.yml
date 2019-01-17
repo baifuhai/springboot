@@ -1,0 +1,12 @@
+person:
+  last-name: zhangsan
+  age: 18
+  boss: false
+  birth: 2018/01/01
+  map: {k1: v1, k2: v2}
+  list:
+    - a
+    - b
+  dog:
+    name: puppy
+    age: 12
