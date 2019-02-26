@@ -1,7 +1,11 @@
 package com.test.springboot.entity;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 //使用JPA注解配置映射关系
 @Entity //告诉JPA这是一个实体类（和数据表映射的类）
@@ -12,8 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键
     private Integer id;
 
-    @Column(name = "last_name",length = 50) //这是和数据表对应的一个列
+    @Column(name = "last_name", length = 50) //这是和数据表对应的一个列
     private String lastName;
+
     @Column //省略默认列名就是属性名
     private String email;
 

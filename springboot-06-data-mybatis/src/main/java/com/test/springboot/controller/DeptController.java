@@ -1,6 +1,5 @@
 package com.test.springboot.controller;
 
-
 import com.test.springboot.bean.Department;
 import com.test.springboot.bean.Employee;
 import com.test.springboot.mapper.DepartmentMapper;
@@ -19,22 +18,20 @@ public class DeptController {
     @Autowired
     EmployeeMapper employeeMapper;
 
-
     @GetMapping("/dept/{id}")
-    public Department getDepartment(@PathVariable("id") Integer id){
+    public Department getDepartment(@PathVariable("id") Integer id) {
         return departmentMapper.getDeptById(id);
     }
 
     @GetMapping("/dept")
-    public Department insertDept(Department department){
+    public Department insertDept(Department department) {
         departmentMapper.insertDept(department);
         return department;
     }
 
     @GetMapping("/emp/{id}")
-    public Employee getEmp(@PathVariable("id") Integer id){
+    public Employee getEmp(@PathVariable("id") Integer id) {
        return employeeMapper.getEmpById(id);
     }
-
 
 }

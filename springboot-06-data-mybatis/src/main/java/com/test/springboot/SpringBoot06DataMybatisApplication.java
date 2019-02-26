@@ -11,4 +11,5 @@ public class SpringBoot06DataMybatisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoot06DataMybatisApplication.class, args);
 	}
+
 }
