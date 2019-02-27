@@ -8,8 +8,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class HelloSpringApplicationRunListener implements SpringApplicationRunListener {
 
     //必须有的构造器
-    public HelloSpringApplicationRunListener(SpringApplication application, String[] args){
-
+    public HelloSpringApplicationRunListener(SpringApplication application, String[] args) {
     }
 
     @Override
@@ -20,7 +19,7 @@ public class HelloSpringApplicationRunListener implements SpringApplicationRunLi
     @Override
     public void environmentPrepared(ConfigurableEnvironment environment) {
         Object o = environment.getSystemProperties().get("os.name");
-        System.out.println("SpringApplicationRunListener...environmentPrepared.."+o);
+        System.out.println("SpringApplicationRunListener...environmentPrepared.." + o);
     }
 
     @Override
@@ -37,4 +36,5 @@ public class HelloSpringApplicationRunListener implements SpringApplicationRunLi
     public void finished(ConfigurableApplicationContext context, Throwable exception) {
         System.out.println("SpringApplicationRunListener...finished...");
     }
+
 }

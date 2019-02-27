@@ -9,4 +9,5 @@ public class SpringBoot08StarterTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoot08StarterTestApplication.class, args);
 	}
+
 }

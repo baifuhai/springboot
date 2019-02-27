@@ -9,4 +9,5 @@ public class SpringBoot02ConfigAutoconfigApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoot02ConfigAutoconfigApplication.class, args);
 	}
+
 }

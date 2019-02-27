@@ -9,4 +9,5 @@ public class SpringBoot03LoggingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoot03LoggingApplication.class, args);
 	}
+
 }

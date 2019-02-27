@@ -11,4 +11,5 @@ public class SpringBoot02ConfigApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBoot02ConfigApplication.class, args);
 	}
+
 }

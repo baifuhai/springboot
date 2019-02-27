@@ -34,7 +34,7 @@ public class SpringBoot06DataJdbcApplicationTests {
 	}
 
 	public void testJdbcTemplate() {
-		List<Map<String, Object>> list = jdbcTemplate.queryForList("select * FROM department");
+		List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from department");
 		for (Map<String, Object> map : list) {
 			System.out.println(map);
 		}

@@ -23,4 +23,5 @@ public class HelloProperties {
     public void setSuffix(String suffix) {
         this.suffix = suffix;
     }
+
 }

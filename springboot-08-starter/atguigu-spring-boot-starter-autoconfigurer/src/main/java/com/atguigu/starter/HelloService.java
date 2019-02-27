@@ -12,7 +12,8 @@ public class HelloService {
         this.helloProperties = helloProperties;
     }
 
-    public String sayHellAtguigu(String name){
-        return helloProperties.getPrefix()+"-" +name + helloProperties.getSuffix();
+    public String sayHellAtguigu(String name) {
+        return helloProperties.getPrefix() + "-" + name + helloProperties.getSuffix();
     }
+
 }

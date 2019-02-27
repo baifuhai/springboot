@@ -1,6 +1,6 @@
 package com.test.springboot;
 
-import com.test.springboot.bean.Person;
+import com.test.springboot.service.HelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,30 +9,25 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * SpringBoot单元测试;
+ * SpringBoot单元测试
  *
  * 可以在测试期间很方便的类似编码一样进行自动注入等容器的功能
- *
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBoot02ConfigApplicationTests {
 
 	@Autowired
-	Person person;
+	HelloService helloService;
 
 	@Autowired
 	ApplicationContext ioc;
 
 	@Test
 	public void testHelloService(){
-		boolean b = ioc.containsBean("helloService02");
-		System.out.println(b);
-	}
-
-	@Test
-	public void contextLoads() {
-		System.out.println(person);
+		System.out.println(helloService.getName());
+		System.out.println(helloService.getPerson());
+		System.out.println(ioc.containsBean("helloService02"));
 	}
 
 }

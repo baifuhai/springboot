@@ -14,9 +14,6 @@
 	<artifactId>springboot-08-starter-test</artifactId>
 	<version>0.0.1</version>
 
-	<name>springboot-08-starter-test</name>
-	<description>Demo project for Spring Boot</description>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -34,7 +31,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--引入自定义的starter-->
+		<!-- 引入自定义的starter -->
 		<dependency>
 			<groupId>com.atguigu.starter</groupId>
 			<artifactId>atguigu-spring-boot-starter</artifactId>

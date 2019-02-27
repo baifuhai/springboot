@@ -8,10 +8,10 @@
     <artifactId>atguigu-spring-boot-starter</artifactId>
     <version>0.0.1</version>
 
-    <!--启动器-->
+    <!-- 启动器 -->
     <dependencies>
 
-        <!--引入自动配置模块-->
+        <!-- 引入自动配置模块 -->
         <dependency>
             <groupId>com.atguigu.starter</groupId>
             <artifactId>atguigu-spring-boot-starter-autoconfigurer</artifactId>

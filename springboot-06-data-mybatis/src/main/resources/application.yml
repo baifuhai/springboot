@@ -1,5 +1,5 @@
-spring:
-  datasource:
+#spring:
+#  datasource:
 #    schema:
 #      - classpath:sql/department.sql
 #      - classpath:sql/employee.sql
